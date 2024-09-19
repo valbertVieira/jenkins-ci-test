@@ -32,13 +32,6 @@ log "Iniciando processo de deployment"
 rm -rf .git
 printenv
 
-# Executando build
-log "Executando o arquivo de build..."
-if ! bash ./scripts/build.bash; then
-    log "Erro: Falha na construção da aplicação."
-    exit 1
-fi
-log "Aplicação construída com sucesso."
 
 # Enviando arquivos
 log "Enviando arquivos para container..."
