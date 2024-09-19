@@ -89,4 +89,4 @@ EOF
 
 log "Servico criado e iniciado com sucesso no container."
 
-log "Processo de deployment concluído"
+log "Processo de deployment concluido"
