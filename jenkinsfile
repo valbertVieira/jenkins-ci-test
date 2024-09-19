@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                sh "./deploy.sh ${params.CONTAINER_IP}"
+                sh "./deploy.bash ${params.CONTAINER_IP}"
             }
         }
     }
