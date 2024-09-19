@@ -7,7 +7,7 @@ pipeline {
                 // Adicione permissões ao script se necessário
                 sh 'chmod +x ./scripts/build.bash'
                 // Executa o script que gera o .env com as variáveis de ambiente
-                sh './scripts/build.bash'
+                sh 'bash ./scripts/build.bash'
                 // Opcional: Verifica o conteúdo do .env para garantir que foi gerado corretamente
                 sh 'cat .env'
             }
@@ -18,7 +18,7 @@ pipeline {
                 // Adicione permissões ao script de deploy se necessário
                 sh 'chmod +x ./deploy.bash'
                 // Executa o script de deploy que copia os arquivos para o container remoto e inicia o serviço
-                sh './deploy.bash'
+                sh 'bash ./deploy.bash'
             }
         }
     }
