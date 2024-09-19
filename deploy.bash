@@ -63,7 +63,7 @@ WorkingDirectory=$REMOTE_PATH
 ExecStart=bash ./scripts/prod_start.bash
 [Install]
 WantedBy=multi-user.target
-EOF
+SERVICE_EOF
 
 # Recarregar o daemon do systemd
 systemctl daemon-reload
