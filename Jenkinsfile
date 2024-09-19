@@ -18,7 +18,7 @@ pipeline {
                 // Adicione permissões ao script de deploy se necessário
                 sh 'chmod +x ./deploy.bash'
                 // Executa o script de deploy que copia os arquivos para o container remoto e inicia o serviço
-                sh 'bash ./deploy.bash 10.108.0.60'
+                sh 'bash ./deploy.bash ${params.CONTAINER_IP}'
             }
         }
     }
