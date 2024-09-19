@@ -42,12 +42,12 @@ fi
 log "Arquivos copiados com sucesso."
 
 # Criando o serviço diretamente no container
-log "Criando serviço no container"
+log "Criando servico no container"
 run_ssh_command "bash -s" <<EOF
 #!/bin/bash
 # Criação do serviço diretamente no container
 
-# Configuração do serviço
+# Configuração do servico
 cat > "${SERVICE_NAME}.service" <<SERVICE_EOF
 [Unit]
 Description=$SERVICE_NAME
@@ -76,7 +76,7 @@ if systemctl list-unit-files | grep -Fq "$SERVICE_NAME.service"; then
         systemctl stop "$SERVICE_NAME.service"
     fi
 else
-    echo "Serviço $SERVICE_NAME não existe. Será criado."
+    echo "Servico $SERVICE_NAME nao existe. Sera criado."
 fi
 
 cp "${SERVICE_NAME}.service" /etc/systemd/system/
@@ -84,9 +84,9 @@ cp "${SERVICE_NAME}.service" /etc/systemd/system/
 systemctl enable $SERVICE_NAME.service
 systemctl restart $SERVICE_NAME.service
 
-echo "[Service] Serviço '$SERVICE_NAME' foi ativado e reiniciado com sucesso."
+echo "[Service] Servico '$SERVICE_NAME' foi ativado e reiniciado com sucesso."
 EOF
 
-log "Serviço criado e iniciado com sucesso no container."
+log "Servico criado e iniciado com sucesso no container."
 
 log "Processo de deployment concluído"
