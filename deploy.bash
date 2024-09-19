@@ -48,7 +48,7 @@ run_ssh_command "bash -s" <<EOF
 # Criação do serviço diretamente no container
 
 # Configuração do serviço
-cat > $SERVICE_PATH <<SERVICE_EOF
+cat > $SERVICE_NAME <<SERVICE_EOF
 [Unit]
 Description=$SERVICE_NAME
 StartLimitIntervalSec=0
@@ -79,6 +79,7 @@ else
     echo "Serviço $SERVICE_NAME não existe. Será criado."
 fi
 
+cp "$SERVICE_NAME.service" /etc/systemd/system
 # Habilitar e iniciar o serviço
 systemctl enable $SERVICE_NAME.service
 systemctl restart $SERVICE_NAME.service
